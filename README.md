@@ -4,6 +4,7 @@ Use FileSaver.js library and cookies for storage and export
 ----------
 
 **Feature:**
+- Easy-to-see interface
 - Store passwords
 - Stores the username and application name
 - Stored on cookies
