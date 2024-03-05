@@ -11,6 +11,8 @@ Use FileSaver.js library and cookies for storage and export
 - Export passwords
 - Delete password
 
+
+Preview: http://binzfakewebsite.com/store-passwords-html-app/
 -----------
 
 *Language: Vietnamese*
