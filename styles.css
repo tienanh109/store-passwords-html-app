@@ -59,3 +59,29 @@ li:nth-child(odd) {
 .deleteButton:hover {
     background-color: #c82333;
 }
+
+.togglePasswordButton {
+    background-color: #17a2b8; /* Info color */
+    color: white;
+    padding: 3px 6px; /* Smaller padding */
+    font-size: 0.8em; /* Smaller font */
+    margin-left: 5px; /* Space from notes/password */
+    width: auto; /* Auto width based on content */
+}
+
+.togglePasswordButton:hover {
+    background-color: #138496; /* Darker info color */
+}
+
+.editButton {
+    background-color: #ffc107; /* Warning color (yellow) */
+    color: #212529; /* Dark text for yellow background */
+    padding: 3px 6px;
+    font-size: 0.8em;
+    margin-left: 5px;
+    width: auto;
+}
+
+.editButton:hover {
+    background-color: #e0a800; /* Darker warning color */
+}

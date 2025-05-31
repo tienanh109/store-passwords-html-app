@@ -9,14 +9,15 @@
 <body>
     <div class="container">
         <h1>Password Manager</h1>
-        <input type="text" id="appName" placeholder="Tên ứng dụng + Username">
+        <input type="text" id="appName" placeholder="Tên ứng dụng">
+        <input type="text" id="username" placeholder="Tên người dùng">
         <input type="text" id="password" placeholder="Mật khẩu">
         <textarea id="notes" placeholder="Điều cần ghi nhớ..."></textarea>
-        <button onclick="savePassword()">Lưu</button>
+        <button id="saveButton" onclick="savePassword()">Lưu</button>
         <button onclick="exportPasswords()">Xuất mật khẩu</button>
         <button onclick="deleteAllPasswords()">Xoá tất cả mật khẩu</button>
         <br>
-        <label for="theme">Giao diện (Thử nghiệm):</label>
+        <label for="theme">Giao diện:</label>
         <select id="theme" onchange="toggleTheme()">
             <option value="light">Sáng</option>
             <option value="dark">Tối</option>
