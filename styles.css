@@ -1,87 +1,179 @@
+/* 1. Basic Body Styling (Theme compatible) */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #f4f4f4; /* Default light background */
+    color: #333; /* Default light text color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth theme transition */
 }
 
+main { /* Define main if you wrap your .container in <main> in index.html, otherwise not strictly needed here */
+    flex: 1 0 auto;
+}
+
+/* Override default container width to be a bit larger if desired */
 .container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 85% !important; /* Default is 70%, !important might be needed if Materialize is very specific */
+    margin-top: 20px;
 }
 
+/* Adjust h1 styling if needed */
 h1 {
-    text-align: center;
+    color: #26a69a; /* Materialize teal */
+    margin-bottom: 30px;
+    font-size: 2.8rem; /* Adjust size as Materialize h1 might be too big */
 }
 
-input[type="text"], textarea {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 8px;
+h2 {
+    font-size: 2rem;
+    color: #26a69a;
 }
 
-button {
-    width: 32%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* 2. Dark Theme Styles (Basic) */
+body.dark {
+    background-color: #303030;
+    color: #f5f5f5;
 }
 
-button:hover {
-    background-color: #0056b3;
+body.dark h1 {
+    color: #80cbc4; /* Lighter teal for dark theme */
 }
 
-ul {
-    padding: 0;
+body.dark h2 {
+    color: #80cbc4; /* Lighter teal for dark theme */
 }
 
-li {
-    list-style: none;
-    margin-bottom: 5px;
-    padding: 8px;
-    background-color: #f4f4f4;
-    border-radius: 5px;
+body.dark .input-field label:not(.active) { /* Ensure labels that are not active (placeholder position) are light */
+    color: #bdbdbd; /* Lighter grey for placeholder labels in dark mode */
 }
 
-li:nth-child(odd) {
-    background-color: #e9e9e9;
+body.dark .input-field label.active {
+    color: #80cbc4; /* Active/focused label color for dark theme */
 }
 
-.deleteButton {
-    background-color: #dc3545;
+body.dark input[type="text"]:not(.browser-default),
+body.dark input[type="password"]:not(.browser-default),
+body.dark textarea.materialize-textarea {
+    border-bottom: 1px solid #9e9e9e; /* Default border for dark inputs */
+    color: #f5f5f5;
 }
 
-.deleteButton:hover {
-    background-color: #c82333;
+body.dark input[type="text"]:not(.browser-default):focus:not([readonly])+label,
+body.dark input[type="password"]:not(.browser-default):focus:not([readonly])+label,
+body.dark textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #80cbc4 !important; /* Teal for active label in dark on focus */
 }
 
-.togglePasswordButton {
-    background-color: #17a2b8; /* Info color */
-    color: white;
-    padding: 3px 6px; /* Smaller padding */
-    font-size: 0.8em; /* Smaller font */
-    margin-left: 5px; /* Space from notes/password */
-    width: auto; /* Auto width based on content */
+body.dark input[type="text"]:not(.browser-default):focus:not([readonly]),
+body.dark input[type="password"]:not(.browser-default):focus:not([readonly]),
+body.dark textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #80cbc4 !important;
+    box-shadow: 0 1px 0 0 #80cbc4 !important;
 }
 
-.togglePasswordButton:hover {
-    background-color: #138496; /* Darker info color */
+body.dark .collection {
+    border-color: #555;
 }
 
-.editButton {
-    background-color: #ffc107; /* Warning color (yellow) */
-    color: #212529; /* Dark text for yellow background */
-    padding: 3px 6px;
-    font-size: 0.8em;
+body.dark .collection .collection-item {
+    background-color: #424242;
+    border-bottom: 1px solid #555;
+    color: #f5f5f5;
+}
+
+body.dark .collection .collection-header {
+    background-color: #383838;
+    border-bottom: 1px solid #555;
+    color: #e0e0e0;
+}
+
+body.dark .collection .collection-item .title {
+    color: #f5f5f5 !important;
+}
+
+body.dark .collection .collection-item p {
+    color: #e0e0e0; /* Lighter paragraph text in collection items */
+}
+
+
+body.dark .page-footer {
+    background-color: #212121 !important;
+}
+body.dark .footer-copyright {
+    background-color: #1a1a1a !important;
+}
+body.dark .page-footer a {
+    color: #ffa726 !important; /* Brighter link color for dark footer */
+}
+
+
+/* Style for select dropdown in dark mode */
+body.dark .select-wrapper input.select-dropdown {
+    color: #f5f5f5;
+    border-bottom: 1px solid #9e9e9e;
+}
+body.dark .select-wrapper .caret { /* Arrow color for select */
+    fill: #f5f5f5;
+}
+
+body.dark ul.dropdown-content {
+  background-color: #424242;
+}
+body.dark .dropdown-content li>a,
+body.dark .dropdown-content li>span {
+    color: #80cbc4; /* Teal text for dropdown items */
+}
+
+/* 3. Custom Application Styles */
+.row .input-field button.btn { /* Target buttons within input-field if used, or general form buttons */
+    margin-top: 20px; /* Add some space above form buttons if they are in input-field divs */
+}
+
+/* Spacing for main action buttons if they are grouped */
+.center-align .btn { /* If buttons are in a center-aligned div */
+    margin: 5px 8px; /* Add horizontal and vertical margin */
+}
+
+
+#passwordList .collection-item .secondary-content .btn-small {
+    margin-top: 5px; /* Align buttons a bit better if text wraps */
     margin-left: 5px;
-    width: auto;
 }
 
-.editButton:hover {
-    background-color: #e0a800; /* Darker warning color */
+/* Ensure password span within list items is stylable */
+.password-display {
+  font-family: monospace;
+  font-size: 1.1em; /* Slightly larger for readability of asterisks */
+  color: #e91e63; /* Pink color for password text/asterisks - for fun, can be themed */
+}
+
+body.dark .password-display {
+    color: #f06292; /* Lighter pink for dark theme */
+}
+
+/* Tooltip styling */
+.material-tooltip {
+    background-color: #424242; /* Darker tooltip background */
+    color: #f5f5f5;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+body.dark .material-tooltip {
+    background-color: #555;
+}
+
+/* Ensure icons in buttons are vertically aligned */
+.btn i.material-icons, .btn-small i.material-icons {
+    vertical-align: middle;
+    line-height: inherit; /* Ensures icon aligns with button text */
+}
+#theme{
+  display: block !important; /* Materialize hides the original select, this brings it back for the onchange */
+}
+label[for="theme"]{
+  position: relative !important; /* Fix label position for theme select */
+  transform: translateY(-14px) scale(0.8) !important;
+  transform-origin: 0 0;
 }
